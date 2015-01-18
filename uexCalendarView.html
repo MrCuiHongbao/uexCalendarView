@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>Demo</title>
+<script type="text/javascript">
+    window.uexOnload = function() {
+		uexWidgetOne.onError = function(opCode, errorCode, errorDesc) {
+			alert(errorCode + ":" + errorDesc);
+		}
+        uexCalendarView.onItemClick = onItemClick;
+	}
+    function openView(){
+       alert("uexCityListView:openView");
+       var params = "{\"x\":\"0\",\"y\":\"164\",\"w\":\"320\",\"h\":\"240\"}";
+       uexCalendarView.open(params);
+    }
+    function setSelectedDate(){
+        alert("setSelectedDate:setSelectedDate");
+        var params = "{\"date\":{\"year\":\"2014\",\"moth\":\"11\",\"day\":\"11\"}}";
+        uexCalendarView.setSelectedDate(params);
+    }
+    function close1(){
+        alert("uexCalenderView.close");
+        uexCalendarView.close();
+    }
+    function onItemClick(data){
+            alert(data);
+    }
+    
+</script>
+</head>
+
+<body>
+	<div class="tit">仿恋爱笔记插件</div>
+        <div class="conbor">
+            <div class="consj">
+                <input class="btn" type="button" value="打开" onclick="openView();"/>
+                <input class="btn" type="button" value="关闭" onclick="close1();"/>
+                <input class="btn" type="button" value="设置日期" onclick="setSelectedDate();"/>
+                <input class="btn" type="button" value="返回" onclick="uexWindow.close();"/>
+            </div>
+        </div>
+</body>
+</html>
